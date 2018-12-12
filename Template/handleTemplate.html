@@ -1,15 +1,16 @@
 <script>
   const template = `
-    <div>name: {{{name}}}</div>
-    <div>age: {{{age}}}</div>
-    <div>age: {{age}}</div>
+    <div>name: {{{name}}}, age: {{{age}}}</div>
+    <div>sex: {{{sex}}}</div>
   `;
   const config = {
     name: "Senzz",
     age: '24',
+    sex: "male"
   }
   const handleTemplate = (template) => {
-    return template.replace(/\{\{\{(.+)?\}\}\}/g, (a, b) => {
+    return template.replace(/\{\{\{(\S+)?\}\}\}/g, (a, b) => {
+      console.log(a, b)
       return config[b];
     });
   }
