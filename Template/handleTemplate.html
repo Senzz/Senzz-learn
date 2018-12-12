@@ -8,12 +8,12 @@
     age: '24',
     sex: "male"
   }
-  const handleTemplate = (template) => {
+  const handleTemplate = (template, data) => {
     return template.replace(/\{\{\{(\S+)?\}\}\}/g, (a, b) => {
       console.log(a, b)
-      return config[b];
+      return data[b];
     });
   }
-  const result = handleTemplate(template);
+  const result = handleTemplate(template, config);
   console.log(result);
 </script>
