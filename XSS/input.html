@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>XSS input</title>
+</head>
+<body>
+  <input type='text' value="" />
+
+  <div class="change">render:</div>
+  <div class="cinput"></div>
+</body>
+<script>
+  const input = document.querySelector('input');
+  const cInput = document.querySelector('.cinput');
+  input.addEventListener('change', e => {
+    const val = e.currentTarget.value;
+    cInput.innerHTML = escape(val);
+  })
+  function escape(val) {
+    return '<input type="text" value="' + val + '">';
+  }     
+</script>
+</html>
