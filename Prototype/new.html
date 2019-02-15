@@ -1,0 +1,17 @@
+<script>
+  function Person(name, age = 10) {
+    this.name = name;
+    this.age = age;
+  }
+
+  const NEW = (FN, ...args) => {
+    const obj = new Object();
+    obj.__proto__ = FN.prototype;
+    FN.apply(obj, args);
+    return obj;
+  }
+
+  const aPerson = new Person('jq', 24);
+  const bPerson = NEW(Person, 'fl', 23);
+  console.log(aPerson, bPerson);
+</script>

@@ -1,0 +1,86 @@
+<script>
+
+  /**
+   * function继承
+   */
+  function inherit(target, source) {
+    console.log('target', target)
+    // target.constructor = target;
+    Object.setPrototypeOf(target.prototype, source.prototype);
+  }
+  function A1() {}
+  A1.prototype.getName = function (params) {
+    return this.name;
+  }
+  function A2() {
+    this.name = 'sen';
+    this.children = ['s'];
+  }
+  A2.prototype.getChild = function (params) {
+    return this.children;
+  }
+  A2.prototype.getName = function (params) {
+    return this.name + '-A2';
+  }
+  inherit(A2, A1);
+  console.log(A2.prototype);
+  const a2 = new A2();
+  console.log(a2.getName())
+  console.log(a2.__proto__.__proto__)
+  /**
+   * inherit Class继承
+   * Object.setPrototypeOf
+   */
+  function inherit(target, source) {
+    Object.setPrototypeOf(target.prototype, source.prototype);
+  }
+
+  class P1 {
+    getName() {
+      return this.name;
+    }
+  }
+  class P2  {
+    constructor() {
+      this.name = 'sen';
+      this.children = ['s'];
+    }
+    getChild() {
+      return this.children
+    }
+  }
+
+  inherit(P2, P1);
+  console.log(P2.prototype)
+  const p = new P2();
+  const child = p.getChild();
+  const name = p.getName();
+  console.log(child, name)
+
+  /*
+   * class A extends b 
+   */
+
+  class C1 {
+    getName() {
+      return this.name;
+    }
+  }
+  class C2 extends C1{
+    constructor(...args) {
+      super(...args);
+      this.name = 'sen';
+      this.children = ['s'];
+    }
+    getName() {
+      return this.name + '1';
+    }
+    getChild() {
+      return this.children
+    }
+  }
+  console.log(C2.prototype);
+  const c2 = new C2();
+  
+  console.log(c2.getName);
+</script>
