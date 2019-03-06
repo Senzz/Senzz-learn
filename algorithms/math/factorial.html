@@ -1,0 +1,13 @@
+<script>
+  const factorial = (n) => {
+    return [...Array(n)].reduce((origin, val, idx) => {
+      return origin * (idx + 1 > 1 ? idx + 1 : 1)
+    }, 1);
+  }
+  
+  console.log(factorial(0));
+  console.log(factorial(1));
+  console.log(factorial(5));
+  console.log(factorial(10));
+  
+</script>
