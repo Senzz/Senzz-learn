@@ -1,19 +1,15 @@
 <script>
-  const arr = [{
-    value: 1
-  }, {
-    value: 3
-  }, {
-    value: 10,
-  }];
+  const fibonacci = (n) => {
+    return Array.from({ length: n }).reduce((origin, num, idx) => {
+      return origin.concat(idx > 1 ? origin[idx - 1] + origin[idx - 2] : 1)
+    }, []);
+  }
 
-  const sum = arr.reduce((result, item) => {
-    let lastVal = result;
-    if (typeof lastVal !== 'number') {
-      lastVal = result.value;
-    }
-    console.log(lastVal, item.value)
-    return lastVal + item.value
-  });
-  console.log(sum)
+  const sum = (arr) => {
+    return arr.reduce((origin, val) => origin + val, 0);
+  }
+
+  console.log(fibonacci(10));
+  console.log(sum([1, 2, 3, 4, 5, 10]));
+
 </script>
