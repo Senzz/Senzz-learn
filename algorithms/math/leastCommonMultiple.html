@@ -1,0 +1,18 @@
+<script>
+  const euclideanAlgorithm = (n, m) => {
+    const [_n, _m] = [Math.abs(n), Math.abs(m)];
+    if (_m === 0) return _n;
+    return euclideanAlgorithm(_m, _n % _m);
+  }
+
+  const leastCommonMultiple = (a, b) => {
+    if (a === 0 || b === 0) return 0;
+    return Math.abs(a * b) / euclideanAlgorithm(a, b);
+  }
+
+  console.log(leastCommonMultiple(0, 0));       // 0
+  console.log(leastCommonMultiple(1, 0));       // 0
+  console.log(leastCommonMultiple(1000000, 2)); // 1000000
+  console.log(leastCommonMultiple(-9, -18));    // 18
+  console.log(leastCommonMultiple(152, 300));    // 11400
+</script>

@@ -1,0 +1,12 @@
+<script>
+  const euclideanAlgorithm = (n, m) => {
+    const [_n, _m] = [Math.abs(n), Math.abs(m)];
+    if (_m === 0) return _n;
+    return euclideanAlgorithm(_m, _n % _m);
+  }
+
+  console.log(euclideanAlgorithm(2, 0));       // 2
+  console.log(euclideanAlgorithm(0, 2));       // 2
+  console.log(euclideanAlgorithm(-5, 15));     // 5
+  console.log(euclideanAlgorithm(462, -1071)); // 21
+</script>
