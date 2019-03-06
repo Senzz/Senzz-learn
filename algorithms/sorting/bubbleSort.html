@@ -1,0 +1,15 @@
+<script>
+  const arr = [1, 5, 10, 3, 11, 30, 50, 100, 80, 20, 10, 11];
+  const bubleSort = (arr) => {
+    const resultArr = [...arr];
+    for(let i = 0; i < resultArr.length; i++) {
+      for(let j = 0; j < resultArr.length - i; j++) {
+        if (resultArr[j] > resultArr[j + 1]) {
+          [resultArr[j], resultArr[j + 1]] = [resultArr[j + 1], resultArr[j]];
+        }
+      }
+    }
+    return resultArr;
+  }
+  console.log(bubleSort(arr))
+</script>
